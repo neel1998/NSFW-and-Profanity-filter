@@ -1,0 +1,24 @@
+{
+    "name": "NSFW fiter",
+    "version": "1.0",
+    "description": "An Extension to filter NSFW images",
+    "permissions": [
+      "activeTab",
+      "declarativeContent",
+      "<all_urls>",
+      "storage",
+      "tabs"
+    ],
+    
+    "content_scripts": [
+        {
+            "matches": [
+              "http://*/*",
+              "https://*/*"
+            ],
+            "js" : ["background.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "manifest_version": 2
+  }
