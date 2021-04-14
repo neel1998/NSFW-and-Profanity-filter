@@ -1,0 +1,33 @@
+{
+  "name": "Profanity Filter",
+  "version": "1.0.0",
+  "description": "This extension remove any profane text in real time.",
+  "author": "Neel Trivedi, Anchit Gupta, Kunal Vaswani",
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "<all_urls>",
+    "storage",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "all_frames": true,
+      "js": [ "jquery-3.4.1.js", "background.js" ],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_title": "Profanity Filter",
+    "default_popup": "src/popup.html"
+  },
+  "web_accessible_resources": [
+    "models/*, images/*"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "manifest_version": 2
+}
