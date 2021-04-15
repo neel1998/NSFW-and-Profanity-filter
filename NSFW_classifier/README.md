@@ -2,6 +2,11 @@
 
 This folder contains the code to train the nsfw image classifier. The model is written in keras and uses [mobileNetV2](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html) as the backbone. Dense layers are added to the pretrained mobileNetV2 to classify an image as NSFW or SFW.
 
+### Install required python libraries
+```
+$ pip install -r requirements.txt
+```
+
 ### Training
 
 To train your own model, run the following command
