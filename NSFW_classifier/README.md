@@ -7,6 +7,16 @@ This folder contains the code to train the nsfw image classifier. The model is w
 $ pip install -r requirements.txt
 ```
 
+### Dataset
+
+    .
+    ├── ...
+    ├── test                    # Test files (alternatively `spec` or `tests`)
+    │   ├── benchmarks          # Load and stress tests
+    │   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
+    │   └── unit                # Unit tests
+    └── ...
+
 ### Training
 
 To train your own model, run the following command
