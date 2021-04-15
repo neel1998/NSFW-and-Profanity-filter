@@ -1,16 +1,16 @@
-console.log('Detoxify is working');
+console.log('De-profaning the page');
 
 
-const url = 'https://58b6fab36583.in.ngrok.io/predict'
+const url = 'https://bdfb55801a13.ngrok.io/predict'
 
 
 observers = {'detox': null}
 
 
-const findProfanity = selection => {
+const findProfanity = () => {
 
     document.querySelectorAll('p,h1,h2,h3,h4,h5,h6,a,span').forEach(x => {
-      if (x !== null) {
+      if (x !== null && !x.classList.value.includes("profane-checked")) {
         let text = x.textContent.trim();
         if (text.length > 0) {
                     
@@ -21,6 +21,7 @@ const findProfanity = selection => {
             if (data['success'] === 'true') {
 
               let tox = parseFloat(data['target']);
+              console.log(tox)
               if (tox > 0.5) {
                 x.textContent = text[0] + "*".repeat(text.length - 1)
               }
@@ -31,7 +32,7 @@ const findProfanity = selection => {
 
           });
 
-          x.classList.add("detoxified");
+          x.classList.add("profane-checked");
       }
     }
   });
@@ -39,30 +40,30 @@ const findProfanity = selection => {
 };
 
 
-const deProfane = textSection => {
+// const deProfane = textSection => {
 
 
-  findProfanity();
+//   findProfanity();
 
-  const mutationConfig = { attributes: false, childList: true, subtree: true };
+//   const mutationConfig = { attributes: false, childList: true, subtree: true };
 
-  if (observers['detox'] !== null) {
+//   if (observers['detox'] !== null) {
 
-    observers['detox'].observe(textSection, mutationConfig);
+//     observers['detox'].observe(textSection, mutationConfig);
 
-  } else {     
+//   } else {     
 
-      const observer = new MutationObserver(() => {
-        console.log('in MutationObserver');
-        findProfanity();
-      });
+//       const observer = new MutationObserver(() => {
+//         console.log('in MutationObserver');
+//         findProfanity();
+//       });
 
-      observer.observe(textSection, mutationConfig);
+//       observer.observe(textSection, mutationConfig);
 
-      observers['detox'] = observer;
-  };
+//       observers['detox'] = observer;
+//   };
   
-};
+// };
 
 
 // const resetToxicity = () => {
@@ -93,23 +94,28 @@ const deProfane = textSection => {
 
 
 
-const checkTextLoaded = () => {
+// const checkTextLoaded = () => {
 
 
-  setTimeout(() => {
-    const textSection = document.querySelector("p,h1,h2,h3,h4,h5,h6,a,span")
-    console.log(textSection)
+//   // setTimeout(() => {
+//     // const textSection = document.querySelector("p,h1,h2,h3,h4,h5,h6,a,span")
+//     // console.log(textSection)
 
-    if (textSection !== null) {
+//     // if (textSection !== null) {
 
-      deProfane(textSection)
-    }
-    else checkTextLoaded();
-  }, 5000);
-};
-
-
+//     //   deProfane(textSection)
+//     // }
+//     // else checkTextLoaded();
+//   // }, 1000);
+// };
 
 
-checkTextLoaded()
+setInterval(() => {
+ 
+  findProfanity()
+
+}, 5000)
+
+findProfanity()
+// checkTextLoaded()
 

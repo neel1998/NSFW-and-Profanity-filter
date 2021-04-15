@@ -1,5 +1,5 @@
 {
-  "name": "NSFW-Profanity Filter",
+  "name": "NSFW Filter",
   "version": "1.0.0",
   "description": "This extension blurs NSFW images from any webpage and will also remove any profane text in real time.",
   "author": "Neel Trivedi, Anchit Gupta, Kunal Vaswani",
@@ -26,7 +26,7 @@
     }
   ],
   "browser_action": {
-    "default_title": "NSFW-Profanity Filter",
+    "default_title": "NSFW Filter",
     "default_popup": "src/popup.html"
   },
   "web_accessible_resources": [
