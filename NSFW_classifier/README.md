@@ -25,6 +25,7 @@ For example,
 $ python test.py -i img.jpg -c ckpt.h5
 ```
 
+<hr/>
 ### Convert checkpoint to be used by the browser extension
 
 Run the following command to convert the model
