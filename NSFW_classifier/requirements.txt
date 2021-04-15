@@ -3,3 +3,4 @@ keras
 opencv-python
 numpy
 argparse
+tensorflowjs
