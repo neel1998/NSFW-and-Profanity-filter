@@ -1,7 +1,7 @@
 console.log('De-profaning the page');
 
 
-const url = 'https://bdfb55801a13.ngrok.io/predict'
+const url = 'http://3dbbac37411f.ngrok.io/predict'
 
 
 observers = {'detox': null}
