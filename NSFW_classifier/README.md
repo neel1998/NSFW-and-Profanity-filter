@@ -1,64 +1,35 @@
-# NSFW and Profanity filter
+# NSFW classifier
 
-This repository contains the code for the Scoial computing course project. This project focuses on creating a browser extension which will filter NSFW and profane content from the webpages using deep learning.
+This folder contains the code to train the nsfw image classifier. The model is written in keras and uses [mobileNetV2](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html) as the backbone. Dense layers are added to the pretrained mobileNetV2 to classify an image as NSFW or SFW.
 
-## Team
+### Training
 
-- Neel Trivedi
-- Anchit Gupta
-- Kunal Vaswani
-
+To train your own model, run the following command
+```
+$ python train_nsfw_classifier.py [-h] [-t Folder containing training data] [-b BATCH_SIZE] [-e Num of epochs] [--lr Learning rate] [-o checkpoint name] [-v VERBOSE]
+```
+For example,
+```
+$ python train_nsfw_classifier.py -t training_data/ -b 64 -e 100 -lr 0.0001 -o ckpt.h5
+```
 <hr/>
 
+### Testing
 
-# Training and Deep learning
-
-## NSFW classifier
-
-## Profanity Detector
-
-
-<hr/>
-
-# Browser Extension
-
-There are two extensions:
-
-1. NSFW images filter
-2. Profanity text filter
-
-### NSFW images filter:
-
-This filter will blur all the NSFW images from the webpages. To use this filter with your own browser, enable <b>Developer Mode</b> in Chrome's extensions window and then click on <b>Load Unpacked</b> and then select [this folder](extension/NSFW_extension).
-
-To use your own pretrained models, change the `model.json` and .bin files [here](extension/NSFW_extension/models/)
-
-### Profanity Filter:
-
-To use the profanity filter you will have to deploy a simple flask server either locally or on a remote server.
-
-To run the flask server go to, `extension/profane_extension/server` and execute,
-
+To test using the saved checkpoint, run the following command
 ```
-> python3 app.py
+$ python test.py [-h] [-i Image Path] [-c Checkpoint path]
+```
+For example,
+```
+$ python test.py -i img.jpg -c ckpt.h5
 ```
 
-Once the server is running replace the url of the server in [background.js](extension/profane_extension/extension/background.js) and then just like the NSFW filter load this package to chrome browser.
+### Convert checkpoint to be used by the browser extension
 
-<i>Since chrome doesn't allow communicating with insecure(http) server, the flask server must be running on HTTPS. for this you can either use nginx or ngrok. We used ngrok</i>
+Run the following command to convert the model
+```
+$ tensorflowjs_converter --input_format=keras ckpt.h5 tfjs_model
+```
 
-# Results
-
-<table>
-<tr>
-    <td><b>Without
-    Extension</b></td>
-    <td><img src = "./static/without_extension.png"/></td>
-</tr>
-<tr>
-      <td><b>With
-      Extension</b></td>
-    <td><img src = "./static/with_extension.png"/></td>
-</tr>
-
-</table>
+This will create a folder tfjs_model having model.json, that will be used by the extension.
