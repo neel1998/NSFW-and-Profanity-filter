@@ -9,12 +9,17 @@ $ pip install -r requirements.txt
 
 ### Dataset
 
+To download the dataset refer [nsfw_data_scraper](https://github.com/alex000kim/nsfw_data_scraper) and [nsfw_data_source_urls](https://github.com/EBazarov/nsfw_data_source_urls), and store the data in following directory structure
+
     .
     ├── ...
-    ├── test                    # Test files (alternatively `spec` or `tests`)
-    │   ├── benchmarks          # Load and stress tests
-    │   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
-    │   └── unit                # Unit tests
+    ├── train
+    │   ├── nsfw
+    │   │   ├── img1.jpg
+    │   │   └── ...
+    │   └── sfw
+    │   │   ├── img1.jpg
+    │   │   └── ...  
     └── ...
 
 ### Training
