@@ -15,6 +15,8 @@ This repository contains the code for the Scoial computing course project. This 
 
 ## NSFW classifier
 
+To know more about NSFW Image classfier, go [here](NSFW_classifier).
+
 ## Profanity Detector
 
 
