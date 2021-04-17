@@ -2,6 +2,8 @@
 
 This repository contains the code for the Scoial computing course project. This project focuses on creating a browser extension which will filter NSFW and profane content from the webpages using deep learning.
 
+Demo Video [Link](https://www.youtube.com/watch?v=RL2RHBe13VU) 
+
 ## Team
 
 - Neel Trivedi
