@@ -19,6 +19,7 @@ To know more about NSFW Image classfier, go [here](NSFW_classifier).
 
 ## Profanity Detector
 
+To know more about Profanity detector, go [here](Profanity_detector).
 
 <hr/>
 
