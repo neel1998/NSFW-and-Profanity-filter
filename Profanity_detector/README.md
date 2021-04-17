@@ -1,4 +1,5 @@
-# NSFW classifier
+# Profanity Detector
+
 
 This folder contains the code to train the profanity detector. The model is written in PyTorch and uses clean_data.csv from the blog https://towardsdatascience.com/building-a-better-profanity-detection-library-with-scikit-learn-3638b2f2c4c2.
 
